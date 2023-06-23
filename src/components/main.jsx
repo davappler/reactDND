@@ -2,6 +2,7 @@ import DraggableItem from "./draggable-item";
 import DroppableArea from "./droppable-area";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { Editor } from "./edtitor";
 
 function MainComp() {
   return (
@@ -9,7 +10,11 @@ function MainComp() {
       <div>
         <DraggableItem name="Item 1" />
         {/* <DraggableItem name="Item 2" /> */}
-        <DroppableArea />
+        {/* <DroppableArea /> */}
+      </div>
+
+      <div>
+        <Editor />
       </div>
     </DndProvider>
   );

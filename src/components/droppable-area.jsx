@@ -3,7 +3,7 @@ import { useDrop } from "react-dnd";
 const DroppableArea = () => {
   const [{ isOver }, drop] = useDrop({
     accept: "item",
-    drop: () => console.log("Item dropped!"),
+    drop: () => console.log("Item dropped in editorrr!"),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
     }),

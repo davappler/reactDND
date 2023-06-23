@@ -1,21 +1,23 @@
 import { useRef, useEffect } from "react";
+import { useDrop } from "react-dnd";
 
 import { EditorState } from "@codemirror/state";
 import { EditorView, keymap } from "@codemirror/view";
 import { defaultKeymap } from "@codemirror/commands";
 
-import { useDrop } from "react-dnd";
-
 export const Editor = () => {
-  //   //   const [{ isOver }, drop] = useDrop({
-  //       accept: "item",
-  //       drop: () => console.log("Item dropped!"),
-  //       collect: (monitor) => ({
-  //         isOver: monitor.isOver(),
-  //       }),
-  //     });
+  const [{ isOver }, drop] = useDrop({
+    accept: "item",
+    drop: () => console.log("Item dropped!"),
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+    }),
+  });
 
   const editor = useRef();
+  //   const anotherRef = useRef(drop);
+
+  const backgroundColor = isOver ? "yellow" : "transparent";
 
   useEffect(() => {
     const startState = EditorState.create({
@@ -32,9 +34,11 @@ export const Editor = () => {
 
   return (
     <div
-      ref={editor}
+      ref={(editor)}
       style={{
         border: "2px solid pink",
+        backgroundColor,
+        height: "100px",
       }}
     ></div>
   );
